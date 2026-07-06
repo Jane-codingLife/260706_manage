@@ -85,7 +85,7 @@
                                         <div class="col-lg-12 p-0">
                                                 <div class="page-header">
                                                         <div class="page-title">
-                                                                <h1>您好！登入時間：</h1>
+                                                                <h1>{{Session::get('aname')}} 您好！登入時間：{{Session::get('sLogintime')}}</h1>
                                                         </div>
                                                 </div>
                                         </div>
