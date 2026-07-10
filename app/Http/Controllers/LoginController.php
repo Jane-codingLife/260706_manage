@@ -19,6 +19,11 @@ class LoginController extends Controller
         // 載入畫面
         return view('index');
     }
+    public function logout()
+    {
+        Session::forget('aid');
+        return view('login');
+    }
     public function checkId(request $request)
     {
         // 檢查帳號跟密碼
@@ -37,5 +42,4 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->withErrors(['帳號輸入錯誤！請重新輸入。']);
         }
     }
-
 }

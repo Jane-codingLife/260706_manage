@@ -10,35 +10,53 @@
 
         <!-- ================= Favicon ================== -->
         <!-- Standard -->
-        <link rel="shortcut icon" href="logo/fav.png">
+        <link rel="shortcut icon" href="/logo/fav.png">
         <!-- Retina iPad Touch Icon-->
-        <link rel="apple-touch-icon" sizes="144x144" href="logo/fav.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/logo/fav.png">
         <!-- Retina iPhone Touch Icon-->
-        <link rel="apple-touch-icon" sizes="114x114" href="logo/fav.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/logo/fav.png">
         <!-- Standard iPad Touch Icon-->
-        <link rel="apple-touch-icon" sizes="72x72" href="logo/fav.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/logo/fav.png">
         <!-- Standard iPhone Touch Icon-->
-        <link rel="apple-touch-icon" sizes="57x57" href="logo/fav.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="/logo/fav.png">
 
         <!-- Styles -->
-        <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
-        <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-        <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
-        <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-        <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/lib/nixon.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="/assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+        <link href="/assets/css/lib/themify-icons.css" rel="stylesheet">
+        <link href="/assets/css/lib/mmc-chat.css" rel="stylesheet" />
+        <link href="/assets/css/lib/sidebar.css" rel="stylesheet">
+        <link href="/assets/css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/css/lib/nixon.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
 
-        <style type="text/css">
+        <style type="/text/css">
 
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-                function deleteConfirm(filename, id) {
-                        if (confirm("警告:\n確定刪除編號為" + id + "的資料嗎?") == 1) {
-                                location.replace(filename + "?mode=delete&id=" + id);
-                        } else
+                function deleteConfirm(id) {
+                        // Swal.fire({
+                        //         title: "警示訊息",
+                        //         text: "確定刪除編號為" + id + "的資料嗎？",
+                        //         icon: "warning",
+                        //         showCancelButton: true,
+                        //         confirmButtonColor: "#3085d6",
+                        //         cancelButtonColor: "#d33",
+                        //         confirmButtonText: "Yes, delete it!"
+                        // }).then((result) => {
+                        //         if (result.isConfirmed) Swal.fire({
+                        //                 title: "Deleted!",
+                        //                 text: "Your file has been deleted.",
+                        //                 icon: "success"
+                        //         });
+                        // });
+                        if (confirm("警告：\n確定刪除編號為" + id + "的資料嗎？") == 1) {
+                                document.getElementById(id).submit();
+                        } else {
                                 return false;
+                        }
                 }
+        </script>
         </script>
 </head>
 
@@ -48,9 +66,9 @@
                 <div class="nano">
                         <div class="nano-content">
                                 <ul>
-                                        <li><a href="index.php"><i class="ti-home"></i> 管理者首頁</a> </li>
-                                        <li><a href="admin.php"><i class="ti-control-record"></i> 1.管理者資料管理</a></li>
-                                        <li><a href="login.php?st=logout"><i class="ti-close"></i> 登出</a></li>
+                                        <li><a href="{{route('welcome')}}"><i class="ti-home"></i> 管理者首頁</a> </li>
+                                        <li><a href="{{route('admin.index')}}"><i class="ti-control-record"></i> 1.管理者資料管理</a></li>
+                                        <li><a href="{{route('logout')}}"><i class="ti-close"></i> 登出</a></li>
                                 </ul>
                         </div>
                 </div>
@@ -62,8 +80,8 @@
         <div class="header">
                 <div class="pull-left">
                         <div class="logo">
-                                <a href="index.html">
-                                        <span style="font-size:18px;color:#fff;"><img id="logoImg" src="logo/logoSmall.png" data-logo_big="logo/logoSmall.png" data-logo_small="logo/logoSmall.png" />後台管理系統</span>
+                                <a href="{{route('welcome')}}">
+                                        <span style="font-size:18px;color:#fff;"><img id="logoImg" src="/logo/logoSmall.png" data-logo_big="/logo/logoSmall.png" data-logo_small="/logo/logoSmall.png" />後台管理系統</span>
                                 </a>
                         </div>
                         <div class="hamburger sidebar-toggle">
@@ -101,26 +119,25 @@
                 </div><!-- /# main -->
         </div><!-- /# content wrap -->
 
-        <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-        <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
-        <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-        <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
-        <script src="assets/js/lib/mmc-common.js"></script>
-        <script src="assets/js/lib/mmc-chat.js"></script>
+        <script src="/assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+        <script src="/assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+        <script src="/assets/js/lib/sidebar.js"></script><!-- sidebar -->
+        <script src="/assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
+        <script src="/assets/js/lib/mmc-common.js"></script>
+        <script src="/assets/js/lib/mmc-chat.js"></script>
         <!--  flot-chart js -->
-        <script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.time.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.stack.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
-        <script src="assets/js/lib/flot-chart/jquery.flot.crosshair.js"></script>
-        <script src="assets/js/lib/flot-chart/curvedLines.js"></script>
-        <script src="assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
-        <script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
+        <script src="/assets/js/lib/flot-chart/excanvas.min.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.time.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.stack.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
+        <script src="/assets/js/lib/flot-chart/jquery.flot.crosshair.js"></script>
+        <script src="/assets/js/lib/flot-chart/curvedLines.js"></script>
+        <script src="/assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+        <script src="/assets/js/lib/flot-chart/flot-chart-init.js"></script>
         <!-- // flot-chart js -->
-        <script src="assets/js/scripts.js"></script><!-- scripit init-->
-
+        <script src="/assets/js/scripts.js"></script><!-- scripit init-->
 </body>
 
 </html>
